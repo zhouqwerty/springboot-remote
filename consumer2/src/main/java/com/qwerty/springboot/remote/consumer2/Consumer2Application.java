@@ -1,4 +1,4 @@
-package com.qwerty.springboot.remote.consumer;
+package com.qwerty.springboot.remote.consumer2;
 
 import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 import org.springframework.boot.SpringApplication;
@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
@@ -15,10 +15,10 @@ import org.springframework.context.annotation.Bean;
 @EnableFeignClients
 @EnableHystrixDashboard
 @EnableCircuitBreaker
-public class ConsumerApplication {
+public class Consumer2Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ConsumerApplication.class, args);
+		SpringApplication.run(Consumer2Application.class, args);
 	}
 
 	/*
@@ -32,9 +32,14 @@ public class ConsumerApplication {
 		HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
 		ServletRegistrationBean registrationBean = new ServletRegistrationBean(streamServlet);
 		registrationBean.setLoadOnStartup(1);
+		/*
+		* 这个地方最好或者说一定配置成这个url
+		* 原因：如果配置成别的，访问单机的Hystrix Dashboard没问题，
+		*       但是集成Hystrix Turbine的时候，turbine里面默认是
+		*       使用这个url访问的
+		* */
 		registrationBean.addUrlMappings("/actuator/hystrix.stream");
 		registrationBean.setName("HystrixMetricsStreamServlet");
 		return registrationBean;
 	}
-
 }

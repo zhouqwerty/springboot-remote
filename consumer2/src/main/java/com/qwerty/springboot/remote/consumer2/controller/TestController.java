@@ -1,7 +1,7 @@
-package com.qwerty.springboot.remote.consumer.controller;
+package com.qwerty.springboot.remote.consumer2.controller;
 
-import com.qwerty.springboot.remote.consumer.entity.DemoEntity;
-import com.qwerty.springboot.remote.consumer.remote.TestRemote;
+import com.qwerty.springboot.remote.consumer2.entity.DemoEntity;
+import com.qwerty.springboot.remote.consumer2.remote.TestRemote2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
     @Autowired
-    private TestRemote testRemote;
+    private TestRemote2 testRemote;
     @RequestMapping("demo")
     public String demo(){
         return testRemote.test2("22");
