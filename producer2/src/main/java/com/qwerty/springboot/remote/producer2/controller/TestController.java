@@ -19,4 +19,8 @@ public class TestController {
         return "this is p1"+demoEntity.getName();
     }
 
+    @RequestMapping("zuul")
+    public String zuul(){
+        return "zuul-pro-2";
+    }
 }

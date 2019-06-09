@@ -22,4 +22,9 @@ public class TestController {
         demoEntity.setName("zhou");
         return testRemote.test(demoEntity);
     }
+
+    @RequestMapping("zuul")
+    public String zuul(){
+        return "zuul-consumer-2";
+    }
 }
