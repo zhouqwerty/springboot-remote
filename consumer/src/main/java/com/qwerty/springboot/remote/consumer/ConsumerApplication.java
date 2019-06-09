@@ -32,6 +32,12 @@ public class ConsumerApplication {
 		HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
 		ServletRegistrationBean registrationBean = new ServletRegistrationBean(streamServlet);
 		registrationBean.setLoadOnStartup(1);
+		/*
+		* 这个地方最好或者说一定配置成这个url
+		* 原因：如果配置成别的，访问单机的Hystrix Dashboard没问题，
+		*       但是集成Hystrix Turbine的时候，turbine里面默认是
+		*       使用这个url访问的
+		* */
 		registrationBean.addUrlMappings("/actuator/hystrix.stream");
 		registrationBean.setName("HystrixMetricsStreamServlet");
 		return registrationBean;
