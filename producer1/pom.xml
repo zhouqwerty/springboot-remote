@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.5.RELEASE</version>
+		<version>2.0.3.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.qwerty.springboot.remote</groupId>
@@ -16,16 +16,15 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<eureka.version>1.4.4.RELEASE</eureka.version>
 	</properties>
 
 	<dependencies>
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-eureka</artifactId>
-			<version>${eureka.version}</version>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+
 		<!--配置eureka的时候不添加这个监控starter，会导致控制台一直打印错误语句
 		    原因：eureka会通过调用/health接口来检测应用的运行情况，不添加监控，
 		         访问/health就是404,所以就报错了-->
