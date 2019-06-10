@@ -23,4 +23,15 @@ public class TestController {
     public String zuul(){
         return "zuul-pro-2";
     }
+
+    @RequestMapping("zuul2")
+    public String zuul2(){
+        System.out.println("zuul2 ........");
+        try {
+            Thread.sleep(1000000);
+        }catch (Exception e){
+            System.out.println("error");
+        }
+        return "zuul2";
+    }
 }
