@@ -25,6 +25,12 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 
+		<!--zipkin 依赖-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zipkin</artifactId>
+		</dependency>
+
 		<!--配置eureka的时候不添加这个监控starter，会导致控制台一直打印错误语句
 		    原因：eureka会通过调用/health接口来检测应用的运行情况，不添加监控，
 		         访问/health就是404,所以就报错了-->
