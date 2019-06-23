@@ -23,4 +23,19 @@ public class TestController {
     public String zuul(){
         return "zuul-pro-1";
     }
+
+    @RequestMapping("test/test3")
+    public String test3(String name){
+        return "this is test3";
+    }
+
+    @RequestMapping("test/test5")
+    public String test5(String test){
+        return "this is "+test;
+    }
+
+    @RequestMapping("test2/test4")
+    public String test4(String name){
+        return "this is test4";
+    }
 }

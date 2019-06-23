@@ -34,4 +34,9 @@ public class TestController {
         }
         return "zuul2";
     }
+
+    @RequestMapping("test/test5")
+    public String test5(String test){
+        return "this is "+test+"!!!!";
+    }
 }
